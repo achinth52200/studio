@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { BookUser, LogIn } from 'lucide-react'
+import { BookUser, UserPlus } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -13,7 +13,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
-export default function LoginPage() {
+export default function SignupPage() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="w-full max-w-md">
@@ -22,12 +22,16 @@ export default function LoginPage() {
             <div className="flex justify-center pb-4">
                 <BookUser className="h-12 w-12 text-primary" />
             </div>
-            <CardTitle className="text-3xl font-bold">DSI Connect</CardTitle>
+            <CardTitle className="text-3xl font-bold">Create an Account</CardTitle>
             <CardDescription>
-              Enter your credentials to access your dashboard
+              Join DSI Connect to access all campus resources.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">Full Name</Label>
+              <Input id="name" type="text" placeholder="John Doe" required />
+            </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -41,17 +45,21 @@ export default function LoginPage() {
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" required />
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="confirm-password">Confirm Password</Label>
+              <Input id="confirm-password" type="password" required />
+            </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
             <Button className="w-full" asChild>
               <Link href="/dashboard">
-                <LogIn className="mr-2 h-4 w-4" /> Sign In
+                <UserPlus className="mr-2 h-4 w-4" /> Sign Up
               </Link>
             </Button>
             <p className="text-sm text-muted-foreground">
-              Don&apos;t have an account?{' '}
-              <Link href="/signup" className="font-medium text-primary hover:underline">
-                Sign Up
+              Already have an account?{' '}
+              <Link href="/" className="font-medium text-primary hover:underline">
+                Sign In
               </Link>
             </p>
           </CardFooter>
